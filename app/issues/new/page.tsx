@@ -1,4 +1,6 @@
 'use client';
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 import { Button } from "@radix-ui/themes";
 
@@ -11,7 +13,7 @@ export default function NewIssuePage() {
         placeholder="Title" 
         className="w-full px-4 py-2 border rounded-md"
       />
-      <textarea className="w-full px-4 py-2 border rounded-md" placeholder="Description" />
+      <SimpleMDE  placeholder="Description" />
       <Button>Submit new issue</Button>
     </div>
   );
