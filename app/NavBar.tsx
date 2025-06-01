@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
 import { HiMiniBugAnt } from "react-icons/hi2";
-
 const NavBar = () => {
 
     const links = [
