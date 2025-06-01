@@ -24,18 +24,7 @@ export default function NewIssuePage() {
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmittion] = useState(false)
 
-  return (
-    <div className="max-w-xl ">
-      {
-        error &&
-        <Callout.Root color="red" className="mb-5">
-            <Callout.Text>{error}</Callout.Text>
-        </Callout.Root>
-      }
-    <form 
-      className="max-w-xl space-y-3" 
-       onSubmit={handleSubmit(async (data) => {
-
+  const onSubmit = handleSubmit(async (data) => {
         try {
           setIsSubmittion(true);
           await axios.post('/api/issues', data);
@@ -46,7 +35,17 @@ export default function NewIssuePage() {
           setError('An Unexpected Error in form')
         }
 
-      })}>
+      })
+
+  return (
+    <div className="max-w-xl ">
+      {
+        error &&
+        <Callout.Root color="red" className="mb-5">
+            <Callout.Text>{error}</Callout.Text>
+        </Callout.Root>
+      }
+    <form className="max-w-xl space-y-3" onSubmit={onSubmit}>
       <input 
         type="text" 
         placeholder="Title" 
